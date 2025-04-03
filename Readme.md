@@ -1,4 +1,4 @@
-# Projeto de API de usuários com Node.js e PostgreSQL 🚀	
+# Projeto API de usuários com Node.js e PostgreSQL 🚀	
 
 ### Descrição 📝
 Esse projeto tem como objetivo criar uma API de usuários, que permite o cadastro, consulta, atualização e exclusão de usuários. A API será desenvolvida utilizando o Node.js e o PostgreSQL.
