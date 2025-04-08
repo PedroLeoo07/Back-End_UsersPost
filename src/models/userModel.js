@@ -9,9 +9,22 @@ const getUserById = async (id) => {
     return result.rows[0];
 };
 
-const getUsers = async () => {
-    const result = await pool.query("SELECT * FROM users");
-    return result.rows;
+const getUsers = async ( name) => {
+    if(!name){
+        const result = await pool.query(
+            `SELECT users.id, users.name, users.email, users.password
+             FROM users 
+             WHERE users.id = $1`
+        );
+        return result.rows;
+    } else{
+        const result = await pool.query(
+            `SELECT users.id, users.name, users.email, users.password
+             FROM users 
+            LEFT JOIN users ON users.id = $1`, [`%${name}%`]       
+        );
+        return result.rows;
+    };
 };
 
 const createUser = async (name, email, password) => {

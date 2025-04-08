@@ -2,7 +2,8 @@ const userModel = require("../models/userModel");
 
 const getAllUsers = async (req, res) => {
     try {
-        const users = await userModel.getUsers();
+        const {name} = req.query;
+        const users = await userModel.getUsers(name);
         res.json({ message: "Users obtidos com sucesso.", users });
     }
     catch (error) {
@@ -12,7 +13,6 @@ const getAllUsers = async (req, res) => {
 
 const getUser = async (req, res) => {
     try {
-        const user = await userModel.getUserById(req.params.id);
         if (!user) {
             return res.status(404).json({ message: "User não encontrado." });
         }
