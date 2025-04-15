@@ -2,6 +2,9 @@ CREATE DATABASE sistema;
 
 \c sistema;
 
+ALTER TABLE users ADD COLUMN photo TEXT;
+
+
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) UNIQUE NOT NULL,

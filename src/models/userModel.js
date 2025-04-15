@@ -27,13 +27,15 @@ const getUsers = async ( name) => {
     };
 };
 
-const createUser = async (name, email, password) => {
+
+const createUser = async (name, email, password, age, sexo, telefone,  photo) => {
     const result = await pool.query(
-        "INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING *",
-        [name, email, password]
+        "INSERT INTO wizards (name, email, password, age, sexo, telefone, photo) VALUES ($1, $2, $3) RETURNING *",
+        [name, email, password, age, sexo, telefone, photo]
     );
     return result.rows[0];
 };
+
 
 const updateUser = async (id, name, email, password) => {
     const result = await pool.query(
