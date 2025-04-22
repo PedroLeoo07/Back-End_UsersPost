@@ -2,7 +2,9 @@ const express = require("express");
 const router = express.Router();
 const userConroller = require("../controllers/userController");
 const upload = require("../config/upload.js"); // importe a upload.js
+const apiKeyMiddleware = require("../config/apiKey"); // Importando o middleware de chave de API    
 
+router.use(apiKeyMiddleware); // Aplicando o middleware de chave de API a todas as rotas
 
 /**
  * @swagger
